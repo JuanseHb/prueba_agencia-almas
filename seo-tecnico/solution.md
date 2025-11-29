@@ -15,16 +15,14 @@ Este documento contiene las soluciones desarrolladas para la sección de SEO Té
 
 ## robots.txt corregido
 
+```
 User-agent: *
-
 Disallow: /wp-admin/
-
 Allow: /wp-admin/admin-ajax.php
-
 Allow: /wp-content/uploads/
 
 Sitemap: https://almasagencia.com/sitemapindex.xml
-
+```
 
 ## Impacto en la indexación
 
@@ -34,8 +32,9 @@ El archivo original habría bloqueado la indexación completa del sitio, impidie
 
 ## HTML original
 
+```
 <div> <h1>Seguros baratos en Bogotá</h3> <p><strong>Seguros baratos</strong> mejores precios <img src="seguro.png"></p> <h2>Comparar precios seguros Bogotá</h4> </div> ```
-
+```
 Problemas identificados
 
     Etiquetas de encabezado incorrectamente cerradas.
@@ -45,6 +44,7 @@ Problemas identificados
 
 ## Versión corregida
 
+```
 <div>
   <h1>Seguros económicos en Bogotá</h1>
 
@@ -58,6 +58,7 @@ Problemas identificados
   
   <h2>Comparar precios de seguros en Bogotá</h2>
 </div>
+```
 
 ### Justificación de cambios
 
@@ -68,6 +69,7 @@ La jerarquía de encabezados fue corregida para asegurar coherencia semántica. 
 
 JSON-LD adecuado para un sitio corporativo como https://softland.com/co/
 
+```
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -103,6 +105,7 @@ JSON-LD adecuado para un sitio corporativo como https://softland.com/co/
   }
 }
 </script>
+```
 
 ## Justificación 
 
