@@ -1,50 +1,5 @@
-# Wordpress PHP – Soluciones
-
-Este documento contiene todas las consultas utilizadas para responder la sección Wordpress - PHP de la prueba Desarollador Full Stack Martech Junior.
-
----
-
-## Ejercicio 1
-
-En el archivo functions.php hay un shortcode que debería mostrar el título del post actual, pero no funciona. Corrige el error y explica qué estaba fallando.
-
-```
-// Shortcode que debe mostrar el título del post actual
-add_shortcode('titulo_post', 'titulo_post_fn');
-
-
-function titulo_post_fn($atts) {
-   global $post;
-   return get_the_title($posts->ID);
-}
-```
-
-### Respuesta corta
-
-El shortcode fallaba porque usaba la variable inexistente $posts en lugar de $post.
-La corrección consiste en usar get_the_title( $post->ID )
-
-```
-add_shortcode('titulo_post', 'titulo_post_fn');
-
-function titulo_post_fn($atts) {
-    global $post;
-
-    // Validación: evitar errores si no hay un post en contexto
-    if (!isset($post->ID)) {
-        return '';
-    }
-
-    return get_the_title($post->ID);
-}
-```
-
-
-## Ejercicio 2
-
-```
 <?php
-
+setlocale(LC_TIME, 'es_ES.UTF-8', 'es_ES', 'spanish');
 // Cargar estilos
 add_action('wp_enqueue_scripts', function() {
     wp_enqueue_style('martech-style', get_template_directory_uri() . '/assets/css/styles.css', [], '1.0');
@@ -72,6 +27,7 @@ add_shortcode('titulo_post', function() {
 // Popup solicitado en la prueba técnica
 add_action('wp_footer', function() {
 
+    setlocale(LC_TIME, 'es_ES.UTF-8', 'es_ES', 'spanish');
     // Fecha dinámica con formato: "1 de marzo"
     $fecha = date_i18n('j \d\e F');
 
@@ -169,14 +125,12 @@ add_action('wp_footer', function() {
     </script>
     <?php
 });
-```
 
-<img width="1919" height="836" alt="imagen" src="https://github.com/user-attachments/assets/08dc2205-4948-4d83-b19f-cc98406014b7" />
 
-La función está ubicada en functions.php
-Contiene HTML + CSS + JS dentro de una misma acción
-Se usa un hook validado por WordPress
-Incluye el mensaje solicitado con fecha dinámica
-Incluye un botón de acción
-Permite cerrar el pop-up
-Es portable, clara y cumple estándares de buenas prácticas
+// Hook para insertar contenedor de Google Tag Manager en <head>
+add_action('wp_head', function() {
+    ?>
+    <!-- Google Tag Manager (head) -->
+    <!-- Reemplazar con el código real de GTM -->
+    <?php
+});
