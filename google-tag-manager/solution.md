@@ -3,7 +3,7 @@
 Este documento contiene todas las consultas utilizadas para responder la sección Google tag manager de la prueba Desarollador Full Stack Martech Junior.
 
 ---
-## Pregunta 3
+## Ejercicio 3
 
  Se trabajó con el código HTML suministrado y se configuraron las variables necesarias dentro del contenedor GTM para capturar información proveniente de elementos del DOM. Finalmente, se responden las preguntas teóricas incluidas en el ejercicio.
 
