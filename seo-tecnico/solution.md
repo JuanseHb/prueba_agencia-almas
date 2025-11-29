@@ -16,8 +16,11 @@ Este documento contiene las soluciones desarrolladas para la sección de SEO Té
 ## robots.txt corregido
 
 User-agent: *
+
 Disallow: /wp-admin/
+
 Allow: /wp-admin/admin-ajax.php
+
 Allow: /wp-content/uploads/
 
 Sitemap: https://almasagencia.com/sitemapindex.xml
