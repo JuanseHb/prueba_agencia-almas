@@ -8,6 +8,7 @@ Este documento contiene todas las consultas utilizadas para responder la secció
 
 ### Tabla: `leads`
 
+```
 CREATE TABLE leads (
     id INT PRIMARY KEY,
     source VARCHAR(50),
@@ -22,21 +23,25 @@ INSERT INTO leads (id, source, created_at, status, budget) VALUES
 (3, 'Facebook Ads', '2025-09-28', 'lost', 300),
 (4, 'Meta Ads', '2025-10-01', 'won', 2500),
 (5, 'Referral', '2025-10-12', 'new', 400);
+```
 
 <img width="705" height="454" alt="imagen" src="https://github.com/user-attachments/assets/a6e60eef-3e56-42b4-8edf-a9a7f0497cf0" />
 
 ## Solución Pregunta 6
 
+```
 SELECT id, source, budget
 FROM leads
 WHERE source = 'Meta Ads'
   AND created_at BETWEEN '2025-10-01' AND '2025-10-31'
   AND budget > 1000;
+```
 
 <img width="702" height="470" alt="imagen" src="https://github.com/user-attachments/assets/62df73c9-b71e-4836-8f4d-d7e010508b40" />
 
 ## Solución Pregunta 7
 
+```
 SELECT AVG(budget) AS promedio_budget
 FROM (
     SELECT budget
@@ -45,6 +50,7 @@ FROM (
       AND created_at BETWEEN '2025-10-01' AND '2025-10-31'
       AND budget > 1000
 ) AS filtros;
+```
   
 <img width="697" height="391" alt="imagen" src="https://github.com/user-attachments/assets/ba220b99-7cdd-4f01-90c6-e85e33fcba00" />
 
@@ -52,6 +58,7 @@ FROM (
 
 ### Tabla: `events`
 
+```
 CREATE TABLE events (
     id INT PRIMARY KEY,
     event_name VARCHAR(50),
@@ -65,20 +72,24 @@ INSERT INTO events (id, event_name, platform, created_at) VALUES
 (3, 'add_to_cart', 'web', '2025-10-02'),
 (4, 'purchase', 'android', '2025-10-02'),
 (5, 'purchase', 'web', '2025-10-03');
+```
 
 <img width="709" height="478" alt="imagen" src="https://github.com/user-attachments/assets/e3c4192c-edda-409d-ad19-36ae4aba5ea9" />
 
 ## Solución Pregunta 8
 
+```
 SELECT event_name, COUNT(*) AS total_eventos
 FROM events
 GROUP BY event_name
 ORDER BY total_eventos DESC;
+```
 
 <img width="693" height="402" alt="imagen" src="https://github.com/user-attachments/assets/64e64490-c22b-45d1-bf66-07da41e7bef2" />
 
 ### Tabla: `wp_users`
 
+```
 CREATE TABLE wp_users (
   ID bigint(20) unsigned NOT NULL,
   user_login varchar(60) NOT NULL,
@@ -100,14 +111,15 @@ VALUES
 (25, 'b-escortgirls4fun.com', '$P$B8oE6vgSogf4l5S326T50P08QEOpc/', 'b-escortgirls4fun.com', ''),
 (26, 'ceo', '$P$B8G0N2erL1cLNJigC14qMz.e4cGc.y.', 'ceo', ''),
 (27, 'bonitagran1769', '$P$BchiXBP4bmwNXq0Xy7NKDHK8T7vLI1I', 'bonitagran1769', '');
-
+```
 
 ## Solución Pregunta 9
 
+```
 UPDATE wp_users
 SET user_pass = MD5('NuevaClave123')
 WHERE user_login = 'ceo';
-
+```
 <img width="696" height="744" alt="imagen" src="https://github.com/user-attachments/assets/3a0bc74b-d9bd-4ba3-a9cf-6183d32e61d7" />
 
 
